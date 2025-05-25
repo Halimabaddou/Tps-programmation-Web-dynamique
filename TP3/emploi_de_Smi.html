@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Emploi du Temps</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: white;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .clickable {
+      color: #0066cc;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Emploi du Temps</h2>
+  <table>
+    <tr>
+      <th>Jour</th>
+      <th>Heure</th>
+      <th>Module</th>
+      <th>Professeur</th>
+    </tr>
+    <tr>
+      <td>Lundi</td>
+      <td>12:15 - 15:20</td>
+      <td><span class="clickable" onclick="showChapters('Programmation Web Dynamique')">Programmation Web Dynamique</span></td>
+      <td><span class="clickable" onclick="showEmail('K.omari@uiz.ac.ma')">Prof K. Omari</span></td>
+    </tr>
+    <tr>
+      <td>Jeudi</td>
+      <td>10:00 - 12:00</td>
+      <td><span class="clickable" onclick="showChapters('Genie Logiciel')">Genie Logiciel</span></td>
+      <td><span class="clickable" onclick="showEmail('abdelhadi008@gmail.com')">Prof A. Bouain</span></td>
+    </tr>
+    <tr>
+      <td>Vendredi</td>
+      <td>15:30 - 18:30</td>
+      <td><span class="clickable" onclick="showChapters('IHM')">IHM</span></td>
+      <td><span class="clickable" onclick="showEmail('m.benaddy@uiz.ca.ma')">Prof M. Benaddy</span></td>
+    </tr>
+    <tr>
+      <td>Samedi</td>
+      <td>09:00 - 12:00</td>
+      <td><span class="clickable" onclick="showChapters('Modelisation')">Modelisation</span></td>
+      <td><span class="clickable" onclick="showEmail('a.elmouatasim@uiz.ac.ma')">Prof A. EL Mouatasim</span></td>
+    </tr>
+  </table>
+
+  <div id="info" style="margin-top: 20px; padding: 10px;"></div>
+
+  <script>
+    function showEmail(email) {
+      document.getElementById('info').innerHTML = "<strong>Gmail du Professeur :</strong> " + email;
+    }
+
+    function showChapters(module) {
+      let chapters = {
+        "Programmation Web Dynamique": ["Chapitre 1: Introduction","Chapitre 2: Exploration de langage HTML", "Chapitre 3: Exploration de langage CSS", "Chapitre 4: Exlporation de langage JS","Chapitre 5: Exploration de langage PHP"],
+        "Genie Logiciel": ["Chapitre 1:Introduction", "Chapitre 2: Cahier de charges", "Chapitre 3: Specification" ,"Chapitre 4: Planification" ,"Chapitre 5: Conception"],
+        "IHM": ["Chapitre 1: Rappels de POO (JAVA)", "Chapitre 2: Interface homme machine", "Chapitre 3: Interface homme machine en Java"],
+        "Modelisation": ["Chapitre 1: Outils d'optimisation", "Chapitre 2: Optimisation sans contrainte", "Chapitre 3: Regression","Chapitre 4:Clustering", "Chapitre 5:Optimisation sous contraintes","Chapitre 6:Optimisation avec contrainte lineaire"]
+      };
+      let list = chapters[module]?.map(ch => "<li>" + ch + "</li>").join("") || "<li>Module non trouvé</li>";
+      document.getElementById('info').innerHTML = "<strong>Chapitres de " + module + " :</strong><ul>" + list + "</ul>";
+    }
+  </script>
+
+</body>
+</html>
