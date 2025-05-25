@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Livre d'or</title>
+</head>
+<body>
+    <h1>Laisser un message</h1>
+    <form action="livreor.php" method="post">
+        Nom : <input type="text" name="nom" required><br><br>
+        Message : <br>
+        <textarea name="message" rows="5" cols="40" required></textarea><br><br>
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <h2>Messages :</h2>
+    <?php include 'livreor.php'; ?>
+</body>
+</html>
